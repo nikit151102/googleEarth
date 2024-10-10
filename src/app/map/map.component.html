@@ -1,0 +1,35 @@
+<div style="display: flex; gap: 10px;">
+  <div style="height: 500px; width: 100%; flex: 1;">
+    <div id="map" style="height: 100%; width: 100%;"></div>
+  </div>
+  <div style="flex: 1; width: 100%;">
+    <h3>Координаты полигонов:</h3>
+    <ul>
+      <li *ngFor="let polygon of polygons; let i = index">
+        <div>
+          <strong>Название:</strong> {{ polygon.name }}<br>
+          <strong>Цвет:</strong> {{ polygon.color }}<br>
+          <strong>Координаты:</strong> {{ polygon.coordinates | json }}
+          <br>
+          <button (click)="editPolygon(i)">Редактировать</button>
+          <button (click)="deletePolygon(i)">Удалить</button>
+        </div>
+      </li>
+    </ul>
+    
+    
+    <div *ngIf="editingPolygonIndex !== null">
+      <h4>Редактировать полигон</h4>
+      <label for="polygonName">Название:</label>
+      <input id="polygonName" [(ngModel)]="polygonForm.name"><br>
+    
+      <label for="polygonColor">Цвет:</label>
+      <input id="polygonColor" type="color" [(ngModel)]="polygonForm.color"><br>
+    
+      <button (click)="savePolygonDetails()">Сохранить изменения</button>
+      <button (click)="cancelEdit()">Отменить</button>
+    </div>
+    
+  </div>
+  
+</div>
