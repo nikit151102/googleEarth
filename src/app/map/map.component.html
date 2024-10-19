@@ -16,6 +16,9 @@
         </div>
       </li>
     </ul>
+    <div>
+      <input type="file" (change)="handleFileInput($event)" accept=".shp,.zip" />
+    </div>
     
     
     <div *ngIf="editingPolygonIndex !== null">
@@ -33,3 +36,4 @@
   </div>
   
 </div>
+
