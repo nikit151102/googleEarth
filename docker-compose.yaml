@@ -9,3 +9,9 @@ services:
     volumes:
       - /app
       - /app/node_modules
+    networks:
+      - my-custom-network
+  
+networks:
+  my-custom-network:
+    driver: bridge
