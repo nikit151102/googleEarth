@@ -13,5 +13,5 @@ services:
       - googleearth_my-custom-network
   
 networks:
-  my-custom-network:
+  googleearth_my-custom-network:
     external: true
